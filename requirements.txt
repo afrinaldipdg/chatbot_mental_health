@@ -3,3 +3,4 @@ chatterbot==1.0.8
 chatterbot_corpus==1.2.0
 gTTS==1.2.2
 spacy==3.2.0
+numpy==1.23.5
