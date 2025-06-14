@@ -6,7 +6,7 @@ import base64
 
 @st.cache_resource
 def load_qa_pipeline():
-    return pipeline("question-answering", model="cahya/bert-base-indonesian-squad")
+    return pipeline("question-answering", model="emthree/indo-bert-squad")
 
 qa = load_qa_pipeline()
 
