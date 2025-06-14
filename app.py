@@ -347,7 +347,7 @@ if st.session_state.get('chatbot_initialized', False) and st.session_state.messa
                             payload: {{
                                 type: 'FROM_PY',
                                 command: 'speak_text',
-                                text: `{bot_response.replace("`", "\\`").replace("$", "\\$")}`,
+                                text: `{bot_response.replace("`", "\\\\`").replace("$", "\\\\$")}`,
                                 audio_url: '{audio_data_url}'
                             }}
                         }}, '*');
