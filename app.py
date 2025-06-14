@@ -4,6 +4,8 @@ import os
 import base64
 from io import BytesIO
 import time
+import subprocess
+import sys
 
 # Impor ChatterBot dan trainernya
 from chatterbot import ChatBot
