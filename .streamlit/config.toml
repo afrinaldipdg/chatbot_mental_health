@@ -1,0 +1,29 @@
+# .streamlit/config.toml
+
+# Pengaturan server Streamlit
+[server]
+port = 8501 # Port default Streamlit. Bisa diubah jika port 8501 sudah digunakan.
+enableCORS = true # Mengizinkan Cross-Origin Resource Sharing. Penting untuk komunikasi JS di browser.
+enableXsrfProtection = true # Melindungi dari serangan Cross-Site Request Forgery. Disarankan tetap true.
+maxUploadSize = 200 # Ukuran maksimum file yang bisa diunggah (dalam MB).
+
+# Pengaturan tema Streamlit (opsional)
+[theme]
+# Primer warna utama untuk elemen interaktif seperti tombol dan link
+primaryColor = "#4CAF50" # Hijau (sesuai tema kesehatan/kesegaran)
+
+# Background color untuk sidebar, header, dan footer
+backgroundColor = "#FFFFFF" # Putih
+
+# Background color untuk area konten utama
+secondaryBackgroundColor = "#F0F2F6" # Abu-abu terang
+
+# Warna teks
+textColor = "#303030" # Hitam gelap
+
+# Warna font default
+font = "sans serif" # Bisa juga "serif" atau "monospace"
+
+# Pengaturan logger (opsional, untuk debugging)
+[logger]
+level = "info" # Tingkat logging: "info", "warning", "error", "debug"
