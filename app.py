@@ -338,6 +338,9 @@ if st.session_state.get('chatbot_initialized', False) and st.session_state.messa
             # Kirim respons bot kembali ke JavaScript untuk dibacakan
             audio_data_url = text_to_speech_gtts(bot_response)
 
+            # Fix the f-string issue by preparing the text outside the f-string
+            escaped_bot_response = bot_response.replace("`", "\\`").replace("$", "\\$")
+            
             js_to_execute = f"""
                 <script>
                     if (window.parent) {{
@@ -347,7 +350,7 @@ if st.session_state.get('chatbot_initialized', False) and st.session_state.messa
                             payload: {{
                                 type: 'FROM_PY',
                                 command: 'speak_text',
-                                text: `{bot_response.replace("`", "\\\\`").replace("$", "\\\\$")}`,
+                                text: `{escaped_bot_response}`,
                                 audio_url: '{audio_data_url}'
                             }}
                         }}, '*');
