@@ -38,14 +38,14 @@ def initialize_chatbot():
     # Ini akan memicu pengunduhan jika belum ada
     try:
         import spacy
-        spacy.load("en_core_web_sm")
-        st.success("Model spaCy 'en_core_web_sm' sudah tersedia.")
+        spacy.load("en")
+        st.success("Model spaCy 'en' sudah tersedia.")
     except OSError:
-        st.info("Mengunduh model spaCy 'en_core_web_sm' (diperlukan oleh ChatterBot)... Ini mungkin memakan waktu sebentar.")
+        st.info("Mengunduh model spaCy 'en' (diperlukan oleh ChatterBot)... Ini mungkin memakan waktu sebentar.")
         try:
             # Perintah untuk mengunduh model
             subprocess.check_call(['python', '-m', 'spacy', 'download', 'en_core_web_sm'])
-            st.success("Model spaCy 'en_core_web_sm' berhasil diunduh!")
+            st.success("Model spaCy 'en' berhasil diunduh!")
         except Exception as e:
             st.error(f"Gagal mengunduh model spaCy: {e}")
             st.warning("Chatbot mungkin tidak berfungsi dengan benar tanpa model spaCy.")
