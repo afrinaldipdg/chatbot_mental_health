@@ -33,7 +33,23 @@ load_css("styles.css")
 def initialize_chatbot():
     """Menginisialisasi dan melatih ChatterBot."""
     st.session_state.chatbot_initialized = False # Flag untuk menunjukkan inisialisasi
-
+    # --- Unduh Model spaCy jika belum ada ---
+    # Cek apakah model 'en_core_web_sm' sudah terinstal
+    # Ini akan memicu pengunduhan jika belum ada
+    try:
+        import spacy
+        spacy.load("en_core_web_sm")
+        st.success("Model spaCy 'en_core_web_sm' sudah tersedia.")
+    except OSError:
+        st.info("Mengunduh model spaCy 'en_core_web_sm' (diperlukan oleh ChatterBot)... Ini mungkin memakan waktu sebentar.")
+        try:
+            # Perintah untuk mengunduh model
+            subprocess.check_call(['python', '-m', 'spacy', 'download', 'en_core_web_sm'])
+            st.success("Model spaCy 'en_core_web_sm' berhasil diunduh!")
+        except Exception as e:
+            st.error(f"Gagal mengunduh model spaCy: {e}")
+            st.warning("Chatbot mungkin tidak berfungsi dengan benar tanpa model spaCy.")
+    # --- Akhir bagian unduh spaCy ---
     if not os.path.exists(DB_PATH):
         # Jika database belum ada, ini berarti bot belum pernah dilatih
         st.info("Melatih chatbot untuk pertama kali... Ini mungkin memakan waktu sebentar.")
