@@ -1,0 +1,89 @@
+/* assets/styles.css */
+
+/* Mengatur warna latar belakang keseluruhan body Streamlit */
+body {
+  background-color: #f0f2f6; /* Abu-abu terang */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Mengubah font default */
+}
+
+/* Mengatur container utama Streamlit untuk tampilan yang lebih rapi */
+.main .block-container {
+  padding-top: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+  max-width: 700px; /* Lebar maksimum konten utama */
+}
+
+/* Menyesuaikan gaya chat message untuk user */
+div[data-testid="stChatMessage"]:nth-child(even) { /* Pesan genap (biasanya user) */
+  background-color: #e0f7fa; /* Biru muda */
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  margin-left: auto; /* Agar pesan user rata kanan */
+  width: fit-content; /* Lebar sesuai konten */
+  max-width: 70%; /* Batas lebar pesan */
+}
+
+/* Menyesuaikan gaya chat message untuk bot */
+div[data-testid="stChatMessage"]:nth-child(odd) { /* Pesan ganjil (biasanya bot) */
+  background-color: #e8f5e9; /* Hijau muda */
+  border-radius: 15px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  margin-right: auto; /* Agar pesan bot rata kiri */
+  width: fit-content;
+  max-width: 70%;
+}
+
+/* Mengatur avatar chat (jika digunakan) */
+/* Contoh: st.chat_message("user", avatar="👤") */
+div[data-testid="chat-avatar-svg-container"] {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc; /* Warna avatar default */
+  font-size: 1.2rem;
+}
+
+/* Mengatur input area Streamlit */
+div[data-baseweb="input"] {
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+/* Mengatur tombol (jika ada tombol Streamlit standar) */
+.stButton>button {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.stButton>button:hover {
+  background-color: #45a049;
+}
+
+/* Mengatur spinner Streamlit */
+.stSpinner > div > div {
+  color: #4CAF50; /* Warna spinner */
+}
+
+/* Menyesuaikan tampilan judul */
+h1 {
+  color: #303030;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #555;
+}
